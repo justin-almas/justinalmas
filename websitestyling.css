@@ -11,3 +11,7 @@ iframe {
     height: 1200px;
     width: 100%;
 }
+body {
+    color: grey;
+    text-align: center;
+}
