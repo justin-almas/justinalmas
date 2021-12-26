@@ -1,0 +1,13 @@
+h1 {
+    color : grey;
+    text-align: center;
+}
+h2 {
+    text-align: center;
+    color : grey;
+
+}
+iframe {
+    height: 1200px;
+    width: 100%;
+}
