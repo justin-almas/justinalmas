@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  position: static;
+}
+
+.shell {
+  height: 400px;
+  width: 750px;
+  min-height: 300px;
+  min-width: 750px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #2D0922;
+  cursor:pointer;
+  position:absolute;
+  resize: both;
+  overflow: hidden;
+  transform: translate(50%, 50%);
+}
+
+.shell-header {
+  height: 10%;
+  width: 100%;
+  font-size: large;
+  text-align: center;
+  top:0;
+  left:0;
+  background-color: grey;
+  position: absolute;
+  cursor:move;
+}
+
+#body {
+  width: 100%;
+  height: 92%;
+  background-color: #2D0922;
+  position: absolute;
+  top: 25px;
+  border:none;
+  outline: none;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.square {
+  background: none;
+  float: right;
+  font-weight: 700;
+  position: relative;
+  margin-right: 1rem;
+  z-index: 900;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  height: 25px;
+}
+
+.terminalIcon {
+  width: 70px;
+  height: 62px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.desktopIcon {
+  width: 80px;
+  height: 100px;
+  text-shadow: 0 0 3px #000, 0 0 5px #FFF;
+}
+
+button:focus,
+button:hover {
+  background-color: rgb(220,220,220, 0.1);
+}
+
+.square:hover {
+  background-color: rgb(220,220,220, 0.6);
+}
+
+.inputText {
+  color: white;
+  z-index: 900;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 500px;
+}
+
+#whitespace {
+  margin-bottom: 20px;
+}
+
+#body::-webkit-scrollbar {
+  display: none;
+}
+
+#fake-div {
+  position: absolute;
+  height: 5px;
+}
