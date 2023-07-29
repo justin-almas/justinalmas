@@ -89,9 +89,9 @@ function CommandElement() {
     return (
       <>
     <li>Commands:</li>
-    <li>"GitHub" - Visit my personal GitHub</li>
-    <li>"LinkedIn" - View my LinkedIn profile</li>
-    <li>"Resume" - See a copy of my Resume</li>
+    <li>&quot;GitHub&quot; - Visit my personal GitHub</li>
+    <li>&quot;LinkedIn&quot; - View my LinkedIn profile</li>
+    <li>&quot;Resume&quot; - See a copy of my Resume</li>
     </>
     )
   }
