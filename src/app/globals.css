@@ -18,12 +18,8 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-image:  url("img-7858.jpg");
+  background-repeat: no-repeat;
   position: static;
 }
 
@@ -81,17 +77,24 @@ body {
 }
 
 .terminalIcon {
-  width: 70px;
-  height: 62px;
+  width: 65px;
+  height: 50px;
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.txtIcon {
+  width: 65px;
+  height: 60px;
+  margin-left:7px;
 }
 
 .desktopIcon {
   width: 80px;
   height: 100px;
   text-shadow: 0 0 3px #000, 0 0 5px #FFF;
+  position: absolute;
 }
 
 button:focus,
@@ -123,4 +126,42 @@ button:hover {
 #fake-div {
   position: absolute;
   height: 5px;
+}
+
+#aboutTxt {
+  z-index: 900;
+  color:#FFF;
+}
+
+.textDocument {
+  height: 400px;
+  width: 750px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #FFF;
+  resize: both;
+  overflow:auto;
+  cursor: grab;
+  position: absolute;
+  transform: translate(50%, 50%);
+}
+
+.innerTxtDocument {
+  color:#080808;
+  padding: 10px;
+}
+
+.text-header {
+  height: 7%;
+  width: 100%;
+  margin-bottom: 2px;
+  background-color: grey;
+}
+
+.background {
+  width: 100%;
+  height: 968px;
+  overflow: hidden;
+  position: relative;
 }

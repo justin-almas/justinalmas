@@ -4,8 +4,10 @@ import Draggable from 'react-draggable'
 import { useState, useRef, useEffect } from 'react';
 
 export default function Home() {
-  const [commandOpen, setCommandOpen] = useState(true);
+  const [commandOpen, setCommandOpen] = useState(false);
+  const [aboutMeOpen, setAboutMeOpen] = useState(true);
   let commandPrompt;
+  let aboutMe;
   
   function closeCommand() {
     setCommandOpen(false);
@@ -15,16 +17,33 @@ export default function Home() {
     setCommandOpen(true);
   }
 
+  function closeAboutMe() {
+    setAboutMeOpen(false);
+  }
+
+  function openAboutMe() {
+    setAboutMeOpen(true);
+  }
+
   if (commandOpen) {
     commandPrompt = <Command onXClickCommand={() => closeCommand()}/>;
   }
+
+  if(aboutMeOpen) {
+    aboutMe = <AboutMe onXClickCommand={() => closeAboutMe()}/>;
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <button onDoubleClick={() => openCommand()} className='fixed top-52 left-5 desktopIcon'>
+      <button onDoubleClick={() => openCommand()} className='fixed left-[25px] top-[100px] desktopIcon'>
         <img className="terminalIcon" src="./images/terminal-icon.jpg"></img> 
         Terminal
       </button>
-      <div className='grid grid-cols-3 gap-4'>
+      <button onDoubleClick={() => openAboutMe()} className='left-[25px] top-[225px] desktopIcon'>
+        <img className="txtIcon" src="./images/texticon.png"></img> 
+        About Me
+      </button>
+      {/* <div className='grid grid-cols-3 gap-4'>
         <div>
         <a href='/JustinAlmasResume.pdf' target="_blank">Résumé</a>
         </div>
@@ -34,14 +53,36 @@ export default function Home() {
         <div>
         <Link link={"https://www.linkedin.com/in/justin-almas"} linkName={"LinkedIn"} />
         </div>
-      </div>
+      </div> */}
       {commandPrompt}
+      {aboutMe}
     </main>
   )
 }
 
 function Link({link, linkName}) {
-  return <a className='padding' href={link} target="_blank">{linkName}</a>
+  return <a className='padding' href={link} target="_blank">{linkName}</a>;
+}
+
+function AboutMe({onXClickCommand}) {
+  return (
+    <>
+    <Draggable>
+      <div className='textDocument'>
+        <div className='text-header'>
+          <button className='square' onClick={onXClickCommand}>X</button>
+        </div>
+        <div className="innerTxtDocument">
+          <p>
+            My name is Justin Almas, and I'm a third year computer science major at Georgia Tech from Suwanee, GA. I am interested in software engineering, data science, artificial
+            intelligence, full stack development, and cybersecurity. I have a passion for all things computers and have extensive experience in Java, Python, and C programming. Additionally, I am pursuing a minor 
+            in French with an intermediate level of fluency.
+          </p>
+        </div>
+      </div>
+    </Draggable>
+    </>
+  )
 }
 
 function Command({onXClickCommand}) {
@@ -54,7 +95,7 @@ function Command({onXClickCommand}) {
             <button className='square' onClick={onXClickCommand}>X</button>
           </div>
         <div id="body">
-          <ol id="test">
+          <ol>
             <CommandElement/>
           </ol>
         </div>
