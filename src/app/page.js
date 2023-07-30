@@ -36,11 +36,11 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <button onDoubleClick={() => openCommand()} className='fixed left-[25px] top-[100px] desktopIcon'>
-        <Image className="terminalIcon" src="./images/terminal-icon.jpg"/>
+        <img className="terminalIcon" src="./images/terminal-icon.jpg"/>
         Terminal
       </button>
       <button onDoubleClick={() => openAboutMe()} className='left-[25px] top-[225px] desktopIcon'>
-        <Image className="txtIcon" src="./images/texticon.png"/>
+        <img className="txtIcon" src="./images/texticon.png"/>
         About Me
       </button>
       {/* <div className='grid grid-cols-3 gap-4'>
