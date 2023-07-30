@@ -93,7 +93,7 @@ body {
 .desktopIcon {
   width: 80px;
   height: 100px;
-  text-shadow: 0 0 3px #000, 0 0 5px #FFF;
+  color: #FFF;
   position: absolute;
 }
 
