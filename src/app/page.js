@@ -74,7 +74,7 @@ function AboutMe({onXClickCommand}) {
         </div>
         <div className="innerTxtDocument">
           <p>
-            My name is Justin Almas, and I'm a third year computer science major at Georgia Tech from Suwanee, GA. I am interested in software engineering, data science, artificial
+            My name is Justin Almas, and I&apos;m a third year computer science major at Georgia Tech from Suwanee, GA. I am interested in software engineering, data science, artificial
             intelligence, full stack development, and cybersecurity. I have a passion for all things computers and have extensive experience in Java, Python, and C programming. Additionally, I am pursuing a minor 
             in French with an intermediate level of fluency.
           </p>
