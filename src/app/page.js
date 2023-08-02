@@ -43,17 +43,6 @@ export default function Home() {
         <img className="txtIcon" src="./images/texticon.png"/>
         About Me
       </button>
-      {/* <div className='grid grid-cols-3 gap-4'>
-        <div>
-        <a href='/JustinAlmasResume.pdf' target="_blank">Résumé</a>
-        </div>
-        <div>
-        <Link link={"https://github.com/justin-almas"} linkName={"GitHub"} />
-        </div>
-        <div>
-        <Link link={"https://www.linkedin.com/in/justin-almas"} linkName={"LinkedIn"} />
-        </div>
-      </div> */}
       {commandPrompt}
       {aboutMe}
     </main>

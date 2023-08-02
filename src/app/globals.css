@@ -135,7 +135,7 @@ button:hover {
 
 .textDocument {
   height: 400px;
-  width: 750px;
+  width: 600px;
   box-sizing: border-box;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -143,8 +143,8 @@ button:hover {
   resize: both;
   overflow:auto;
   cursor: grab;
-  position: absolute;
-  transform: translate(50%, 50%);
+  position: relative;
+  top:175px;
 }
 
 .innerTxtDocument {
