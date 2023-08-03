@@ -6,6 +6,8 @@ import { useState, useRef, useEffect } from 'react';
 export default function Home() {
   const [commandOpen, setCommandOpen] = useState(false);
   const [aboutMeOpen, setAboutMeOpen] = useState(true);
+  const [readmeOpen, setReadmeOpen] = useState(false);
+  let readme;
   let commandPrompt;
   let aboutMe;
   
@@ -25,12 +27,24 @@ export default function Home() {
     setAboutMeOpen(true);
   }
 
+  function closeReadme() {
+    setReadmeOpen(false);
+  }
+
+  function openReadme() {
+    setReadmeOpen(true);
+  }
+
   if (commandOpen) {
     commandPrompt = <Command onXClickCommand={() => closeCommand()}/>;
   }
 
   if(aboutMeOpen) {
     aboutMe = <AboutMe onXClickCommand={() => closeAboutMe()}/>;
+  }
+
+  if(readmeOpen) {
+    readme = <Readme onXClickCommand={() => closeReadme()}/>;
   }
 
   return (
@@ -43,8 +57,13 @@ export default function Home() {
         <img className="txtIcon" src="./images/aboutMe.png"/>
         About Me
       </button>
+      <button onDoubleClick={() => openReadme()} className='left-[25px] top-[350px] desktopIcon'>
+        <img className="txtIcon" src="./images/aboutMe.png"/>
+        Readme
+      </button>
       {commandPrompt}
       {aboutMe}
+      {readme}
     </main>
   )
 }
@@ -66,6 +85,26 @@ function AboutMe({onXClickCommand}) {
             My name is Justin Almas, and I&apos;m a third year computer science major at Georgia Tech from Suwanee, GA. I am interested in software engineering, data science, artificial
             intelligence, full stack development, and cybersecurity. I have a passion for all things computers and have extensive experience in Java, Python, and C programming. Additionally, I am pursuing a minor 
             in French with an intermediate level of fluency.
+          </p>
+        </div>
+      </div>
+    </Draggable>
+    </>
+  )
+}
+
+function Readme ({onXClickCommand}) {
+  return (
+    <>
+    <Draggable>
+      <div className='textDocument' id='readme'>
+        <div className='text-header'>
+          <button className='square' onClick={onXClickCommand}>X</button>
+        </div>
+        <div className="innerTxtDocument">
+          <p>
+            <p>Welcome to my personal website! I put this together to get more experience with React and web development in general.</p>
+            <p>To learn more about me, open up the terminal and type &apos;justin help&apos; to see a list of commands to use.</p>
           </p>
         </div>
       </div>

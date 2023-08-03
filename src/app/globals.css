@@ -143,7 +143,7 @@ button:hover {
   resize: both;
   overflow:auto;
   cursor: grab;
-  position: relative;
+  position: absolute;
   top:175px;
 }
 
@@ -164,4 +164,18 @@ button:hover {
   height: 968px;
   overflow: hidden;
   position: relative;
+}
+
+#readme {
+  height: 400px;
+  width: 600px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #FFF;
+  resize: both;
+  overflow:auto;
+  cursor: grab;
+  position: absolute;
+  top:250px;
 }
