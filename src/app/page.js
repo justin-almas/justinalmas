@@ -35,16 +35,47 @@ export default function Home() {
     setReadmeOpen(true);
   }
 
+  function updateReadmeZ() {
+    document.getElementById('readme').style.zIndex = 2;
+    try {
+      document.getElementById('aboutMeBox').style.zIndex = 1;
+    } catch(err){}
+    try {
+      document.getElementById('movableShell').style.zIndex = 1;
+      
+    } catch (er) {}
+  }
+
+  function updateCommandZ() {
+    document.getElementById('movableShell').style.zIndex = 2;
+    try {
+    document.getElementById('aboutMeBox').style.zIndex = 1;
+    } catch(err){}
+    try {
+      document.getElementById('readme').style.zIndex = 1;
+    } catch (er) {}
+  }
+
+  function updateAboutMeZ() {
+    document.getElementById('aboutMeBox').style.zIndex = 2;
+    try {
+      document.getElementById('readme').style.zIndex = 1;
+    } catch(err){}
+    try {
+      document.getElementById('movableShell').style.zIndex = 1;
+    } catch (er) {}
+  }
+
   if (commandOpen) {
-    commandPrompt = <Command onXClickCommand={() => closeCommand()}/>;
+    commandPrompt = <Command onXClickCommand={() => closeCommand()} onBoxClick={() => updateCommandZ()}/>;
   }
 
   if(aboutMeOpen) {
-    aboutMe = <AboutMe onXClickCommand={() => closeAboutMe()}/>;
+    aboutMe = <AboutMe onXClickCommand={() => closeAboutMe()} onBoxClick={() => updateAboutMeZ()}/>;
   }
 
   if(readmeOpen) {
-    readme = <Readme onXClickCommand={() => closeReadme()}/>;
+    readme = <Readme onXClickCommand={() => closeReadme()} onBoxClick={() => updateReadmeZ()}/>;
   }
 
   return (
@@ -72,11 +103,11 @@ function Link({link, linkName}) {
   return <a className='padding' href={link} target="_blank">{linkName}</a>;
 }
 
-function AboutMe({onXClickCommand}) {
+function AboutMe({onXClickCommand, onBoxClick}) {
   return (
     <>
     <Draggable>
-      <div className='textDocument'>
+      <div className='textDocument' id="aboutMeBox" onClick={onBoxClick}>
         <div className='text-header'>
           <button className='square' onClick={onXClickCommand}>X</button>
         </div>
@@ -93,11 +124,11 @@ function AboutMe({onXClickCommand}) {
   )
 }
 
-function Readme ({onXClickCommand}) {
+function Readme ({onXClickCommand, onBoxClick}) {
   return (
     <>
     <Draggable>
-      <div className='textDocument' id='readme'>
+      <div className='textDocument' id='readme' onClick={onBoxClick}>
         <div className='text-header'>
           <button className='square' onClick={onXClickCommand}>X</button>
         </div>
@@ -113,11 +144,11 @@ function Readme ({onXClickCommand}) {
   )
 }
 
-function Command({onXClickCommand}) {
+function Command({onXClickCommand, onBoxClick}) {
   return (
     <>
     <Draggable handle=".handle">
-      <div className="shell" id="movableShell">
+      <div className="shell" id="movableShell" onClick={onBoxClick}>
           <div className="shell-header handle" id="shellHeader">
             C:/Users/Justin
             <button className='square' onClick={onXClickCommand}>X</button>
