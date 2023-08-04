@@ -5,8 +5,8 @@ import { useState, useRef, useEffect } from 'react';
 
 export default function Home() {
   const [commandOpen, setCommandOpen] = useState(false);
-  const [aboutMeOpen, setAboutMeOpen] = useState(true);
-  const [readmeOpen, setReadmeOpen] = useState(false);
+  const [aboutMeOpen, setAboutMeOpen] = useState(false);
+  const [readmeOpen, setReadmeOpen] = useState(true);
   let readme;
   let commandPrompt;
   let aboutMe;
@@ -136,6 +136,7 @@ function Readme ({onXClickCommand, onBoxClick}) {
           <p>
             <p>Welcome to my personal website! I put this together to get more experience with React and web development in general.</p>
             <p>To learn more about me, open up the terminal and type &apos;justin help&apos; to see a list of commands to use.</p>
+            <p>Additionally, you can read a brief about me by double clicking on the icon &apos;About Me&apos;</p>
           </p>
         </div>
       </div>
