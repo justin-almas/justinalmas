@@ -28,13 +28,17 @@ body {
   width: 750px;
   min-height: 300px;
   min-width: 750px;
-  box-sizing: border-box;
-  border-radius: 8px;
-  border: 1px solid #ccc;
   background-color: #2D0922;
+  border-radius: 8px;
+  box-sizing: border-box;
   cursor:pointer;
   resize: both;
   overflow: hidden;
+}
+
+.handle {
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
 .shell-header {

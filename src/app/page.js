@@ -10,6 +10,7 @@ export default function Home() {
   let readme;
   let commandPrompt;
   let aboutMe;
+  var lastClicked = 'readme';
   
   function closeCommand() {
     setCommandOpen(false);
@@ -39,34 +40,63 @@ export default function Home() {
   }
 
   function updateReadmeZ() {
-    document.getElementById('pseudoReadme').style.zIndex = 2;
-    try {
-      document.getElementById('pseudoAbout').style.zIndex = 1;
-    } catch(err){}
-    try {
-      document.getElementById('pseudoCmd').style.zIndex = 1;
-      
-    } catch (er) {}
+    document.getElementById('pseudoReadme').style.zIndex = 3;
+    if (lastClicked == 'command') {
+      try {
+        document.getElementById('pseudoCmd').style.zIndex = 2;
+      } catch (err) {}
+      try {
+        document.getElementById('pseudoAbout').style.zIndex = 1;
+      } catch (er) {}
+    } else if (lastClicked == 'about') {
+      try {
+        document.getElementById('pseudoAbout').style.zIndex = 2;
+      } catch (err) {}
+      try {
+        document.getElementById('pseudoCmd').style.zIndex = 1;
+      } catch (er) {}
+    }
+    lastClicked = 'readme';
   }
 
   function updateCommandZ() {
-    document.getElementById('pseudoCmd').style.zIndex = 2;
-    try {
-    document.getElementById('pseudoAbout').style.zIndex = 1;
-    } catch(err){}
-    try {
-      document.getElementById('pseudoReadme').style.zIndex = 1;
-    } catch (er) {}
+    document.getElementById('pseudoCmd').style.zIndex = 3;
+    if (lastClicked == 'readme') {
+      try {
+        document.getElementById('pseudoReadme').style.zIndex = 2;
+      } catch (err) {}
+      try {
+        document.getElementById('pseudoAbout').style.zIndex = 1;
+      } catch (er) {}
+    } else if (lastClicked == 'about') {
+      try {
+        document.getElementById('pseudoAbout').style.zIndex = 2;
+      } catch (err) {}
+      try {
+        document.getElementById('pseudoReadme').style.zIndex = 1;
+      } catch (er) {}
+    }
+    lastClicked = 'command';
   }
 
   function updateAboutMeZ() {
-    document.getElementById('pseudoAbout').style.zIndex = 2;
-    try {
-      document.getElementById('pseudoReadme').style.zIndex = 1;
-    } catch(err){}
-    try {
-      document.getElementById('pseudoCmd').style.zIndex = 1;
-    } catch (er) {}
+    document.getElementById('pseudoAbout').style.zIndex = 3;
+    if (lastClicked == 'command') {
+      try {
+        document.getElementById('pseudoCmd').style.zIndex = 2;
+      } catch (err) {}
+      try {
+        document.getElementById('pseudoReadme').style.zIndex = 1;
+      } catch (er) {}
+    } else if (lastClicked == 'readme') {
+      try {
+        document.getElementById('pseudoReadme').style.zIndex = 2;
+      } catch (err) {}
+      try {
+        document.getElementById('pseudoCmd').style.zIndex = 1;
+      } catch (er) {}
+    }
+    lastClicked = 'about';
   }
 
   if (commandOpen) {
@@ -95,15 +125,21 @@ export default function Home() {
         <img className="txtIcon" src="./images/aboutMe.png"/>
         Readme
       </button>
-      <div id='pseudoCmd'>
-      {commandPrompt}
-      </div>
-      <div id='pseudoAbout'>
-      {aboutMe}
-      </div>
-      <div id='pseudoReadme'>
-      {readme}
-      </div>
+      <Draggable handle='.handle'>
+        <div id='pseudoCmd'>
+          {commandPrompt}
+        </div>
+      </Draggable>
+      <Draggable>
+        <div id='pseudoAbout'>
+          {aboutMe}
+        </div>
+      </Draggable>
+      <Draggable>
+        <div id='pseudoReadme'>
+          {readme}
+        </div>
+      </Draggable>
     </main>
   )
 }
@@ -115,7 +151,6 @@ function Link({link, linkName}) {
 function AboutMe({onXClickCommand, onBoxClick}) {
   return (
     <>
-    <Draggable>
       <div className='textDocument' id="aboutMeBox" onClick={onBoxClick}>
         <div className='text-header'>
           <button className='square' onClick={onXClickCommand}>X</button>
@@ -128,7 +163,6 @@ function AboutMe({onXClickCommand, onBoxClick}) {
           </p>
         </div>
       </div>
-    </Draggable>
     </>
   )
 }
@@ -136,7 +170,6 @@ function AboutMe({onXClickCommand, onBoxClick}) {
 function Readme ({onXClickCommand, onBoxClick}) {
   return (
     <>
-    <Draggable>
       <div className='textDocument' id='readme' onClick={onBoxClick}>
         <div className='text-header'>
           <button className='square' onClick={onXClickCommand}>X</button>
@@ -147,7 +180,6 @@ function Readme ({onXClickCommand, onBoxClick}) {
           <p>Additionally, you can read a brief about me by double clicking on the icon &apos;About Me&apos;</p>
         </div>
       </div>
-    </Draggable>
     </>
   )
 }
@@ -155,7 +187,6 @@ function Readme ({onXClickCommand, onBoxClick}) {
 function Command({onXClickCommand, onBoxClick}) {
   return (
     <>
-    <Draggable handle=".handle">
       <div className="shell" id="movableShell" onClick={onBoxClick}>
           <div className="shell-header handle" id="shellHeader">
             C:/Users/Justin
@@ -167,8 +198,7 @@ function Command({onXClickCommand, onBoxClick}) {
           </ol>
         </div>
       </div>
-    </Draggable>
-</>
+  </>
 );
 }
 
