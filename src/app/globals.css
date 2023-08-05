@@ -33,10 +33,8 @@ body {
   border: 1px solid #ccc;
   background-color: #2D0922;
   cursor:pointer;
-  position:absolute;
   resize: both;
   overflow: hidden;
-  z-index: 2;
 }
 
 .shell-header {
@@ -143,9 +141,6 @@ button:hover {
   resize: both;
   overflow:auto;
   cursor: grab;
-  position: absolute;
-  top:175px;
-  z-index: 2;
 }
 
 .innerTxtDocument {
@@ -177,7 +172,18 @@ button:hover {
   resize: both;
   overflow:auto;
   cursor: grab;
+}
+
+#pseudoReadme {
   position: absolute;
   top:250px;
-  z-index: 1;
+}
+
+#pseudoCmd {
+  position:absolute;
+}
+
+#pseudoAbout {
+  position: absolute;
+  top:175px;
 }

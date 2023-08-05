@@ -17,6 +17,7 @@ export default function Home() {
 
   function openCommand() {
     setCommandOpen(true);
+    updateCommandZ();
   }
 
   function closeAboutMe() {
@@ -25,6 +26,7 @@ export default function Home() {
 
   function openAboutMe() {
     setAboutMeOpen(true);
+    updateAboutMeZ();
   }
 
   function closeReadme() {
@@ -33,36 +35,37 @@ export default function Home() {
 
   function openReadme() {
     setReadmeOpen(true);
+    updateReadmeZ();
   }
 
   function updateReadmeZ() {
-    document.getElementById('readme').style.zIndex = 2;
+    document.getElementById('pseudoReadme').style.zIndex = 2;
     try {
-      document.getElementById('aboutMeBox').style.zIndex = 1;
+      document.getElementById('pseudoAbout').style.zIndex = 1;
     } catch(err){}
     try {
-      document.getElementById('movableShell').style.zIndex = 1;
+      document.getElementById('pseudoCmd').style.zIndex = 1;
       
     } catch (er) {}
   }
 
   function updateCommandZ() {
-    document.getElementById('movableShell').style.zIndex = 2;
+    document.getElementById('pseudoCmd').style.zIndex = 2;
     try {
-    document.getElementById('aboutMeBox').style.zIndex = 1;
+    document.getElementById('pseudoAbout').style.zIndex = 1;
     } catch(err){}
     try {
-      document.getElementById('readme').style.zIndex = 1;
+      document.getElementById('pseudoReadme').style.zIndex = 1;
     } catch (er) {}
   }
 
   function updateAboutMeZ() {
-    document.getElementById('aboutMeBox').style.zIndex = 2;
+    document.getElementById('pseudoAbout').style.zIndex = 2;
     try {
-      document.getElementById('readme').style.zIndex = 1;
+      document.getElementById('pseudoReadme').style.zIndex = 1;
     } catch(err){}
     try {
-      document.getElementById('movableShell').style.zIndex = 1;
+      document.getElementById('pseudoCmd').style.zIndex = 1;
     } catch (er) {}
   }
 
@@ -92,9 +95,15 @@ export default function Home() {
         <img className="txtIcon" src="./images/aboutMe.png"/>
         Readme
       </button>
+      <div id='pseudoCmd'>
       {commandPrompt}
+      </div>
+      <div id='pseudoAbout'>
       {aboutMe}
+      </div>
+      <div id='pseudoReadme'>
       {readme}
+      </div>
     </main>
   )
 }
