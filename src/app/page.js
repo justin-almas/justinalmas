@@ -133,11 +133,9 @@ function Readme ({onXClickCommand, onBoxClick}) {
           <button className='square' onClick={onXClickCommand}>X</button>
         </div>
         <div className="innerTxtDocument">
-          <p>
-            <p>Welcome to my personal website! I put this together to get more experience with React and web development in general.</p>
-            <p>To learn more about me, open up the terminal and type &apos;justin help&apos; to see a list of commands to use.</p>
-            <p>Additionally, you can read a brief about me by double clicking on the icon &apos;About Me&apos;</p>
-          </p>
+          <p>Welcome to my personal website! I put this together to get more experience with React and web development in general.</p>
+          <p>To learn more about me, open up the terminal and type &apos;justin help&apos; to see a list of commands to use.</p>
+          <p>Additionally, you can read a brief about me by double clicking on the icon &apos;About Me&apos;</p>
         </div>
       </div>
     </Draggable>
