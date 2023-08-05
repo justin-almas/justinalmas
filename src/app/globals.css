@@ -36,7 +36,7 @@ body {
   position:absolute;
   resize: both;
   overflow: hidden;
-  transform: translate(50%, 50%);
+  z-index: 2;
 }
 
 .shell-header {
@@ -145,6 +145,7 @@ button:hover {
   cursor: grab;
   position: absolute;
   top:175px;
+  z-index: 2;
 }
 
 .innerTxtDocument {
@@ -178,4 +179,5 @@ button:hover {
   cursor: grab;
   position: absolute;
   top:250px;
+  z-index: 1;
 }
